@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>This is my first js code<h2>
+<button type="button" onclick="getDate()">click here to get date and time</button>
+<p id="demo"></p>
+</body>
+<script>
+
+
+//onclick="document.getElementById('demo').innerHTML = Date()"
+
+function getDate(){
+let ans=document.getElementById('demo').innerHTML=Date();
+console.log(ans);
+
+setTimeout(()=>{
+    console.clear();
+    ans=document.getElementById('demo').innerHTML='';
+
+},2000);
+
+}
+
+</script>
+
+</html> 
