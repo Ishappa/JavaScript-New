@@ -1,7 +1,7 @@
 'use strict';
 
-const weekdays = [ 'Mon', 'Tue', 'Wed', 'thu', 'Fri', 'Sat'];
-const openingHours= {
+const weekdays = ['Mon', 'Tue', 'Wed', 'thu', 'Fri', 'Sat'];
+const openingHours = {
   [weekdays[3]]: {
     open: 12,
     close: 22,
@@ -10,15 +10,13 @@ const openingHours= {
     open: 11,
     close: 23,
   },
-  
+
   // [`days-${2+4}`]: {
   [weekdays[5]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
 };
-
-
 
 // Data needed for a later exercise
 const flights =
@@ -38,8 +36,8 @@ const restaurant = {
   // we can write like this also without the colon and without function keywords
   // order(starterIndex, mainIndex) {
   //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  // },  
-  
+  // },
+
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -58,7 +56,6 @@ const restaurant = {
     console.log(otherIngredient);
   },
 };
-console.log(order
 
 // //-----------------------for of loop-------------------------------------------
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
@@ -115,8 +112,6 @@ console.log(order
 
 // const x = [23, 5, 7];
 // add(...x);
-
-
 
 // restaurant.orderDelivery({
 //   time: '22:30',
