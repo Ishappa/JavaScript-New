@@ -71,6 +71,85 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+//slice fetch the elements
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(1, -2));
+console.log(...arr);
+
+//splice method will delete the elements in the array
+console.log(arr.splice(2)); // remove elements from 2nd index
+// arr.splice(-1);
+console.log(arr);
+
+let fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple'];
+let removedFruits = fruits.splice(1, 2); // Removes 2 elements starting from index 1
+console.log(fruits); // Output: ['Apple', 'Mango', 'Pineapple']
+console.log(removedFruits); // Output: ['Banana', 'Orange']
+
+//reverse
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['f', 'g', 'h'];
+console.log(arr.reverse());
+
+//concat
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+//Join
+console.log(letters.join(' - '));
+
+//===============================Map ================================
+
+// The map Method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+//example
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // Output: [2, 4, 6, 8, 10]
+
+let mov;
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
+
+//===========Filter Methods =============================
+
+const deposite = movements.filter(function (a) {
+  // if you use map it will return boolean
+  return a > 0;
+});
+console.log(movements);
+console.log(deposite);
+
+// ==================================================
+
+const balance = movements.reduce((acc, cur) => acc + cur, 0); // we will start at 0
+console.log(balance);
