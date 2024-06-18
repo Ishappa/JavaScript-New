@@ -177,3 +177,50 @@ console.log(`Hey ${this.firstName}`);
 },
 };
 isha.greet();
+
+# closuer function
+
+A clouser function dosent lose the conncetion to variables that existed at the function's birth place.
+
+# example:
+
+const secureBooking = function () {
+let passengerCount = 0;
+return function () {
+passengerCount++;
+console.log(passengerCount);
+};
+};
+//example 2: for closuer function==========================
+const booker = secureBooking();
+booker();//1
+booker();//2
+booker();//3 always it will catch the old values
+
+example : child to parent dosent lose the conncetion to variables that existed at the function's birth place
+
+# Operators
+
+const user = [];
+if (user.length > 0) {
+console.log(user[0]);
+} else {
+console.log('user array empty');
+}
+// we can write like this using ?? nullish collisions operator
+console.log(user[0] ?? 'User array empty');
+
+=== using objects==============
+
+const user1 = [{ name: 'Alice' }, { name: 'Bob' }];
+console.log(user1[0]?.name ?? 'User array empty'); // Output: 'Alice'
+
+const user2 = [1, 2];
+console.log(user2[0]?.name ?? 'User array empty'); // Output: 'User array empty'
+
+# Map method
+
+//example
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num \* 2);
+console.log(doubled); // Output: [2, 4, 6, 8, 10]

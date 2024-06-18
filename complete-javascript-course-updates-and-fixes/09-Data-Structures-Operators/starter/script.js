@@ -56,8 +56,116 @@ const restaurant = {
     console.log(otherIngredient);
   },
 };
+// const a = 'hello world';
+// const b = 'hello';
+
+// console.log(a[1]);
+// console.log('hello'.length);
+// console.log('hello'[0]);
+// console.log(a.indexOf('o'));
+// console.log(b.lastIndexOf('l'));
+// console.log(b.slice(2));
+// console.log(b.slice(2, 4));
+// console.log(a.slice(a.lastIndexOf('o')));
+// console.log(b.slice(-2)); //last 2 letters
+// console.log(b.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+
+//   if (s === 'B' || s === 'E') {
+//     console.log('You got the middle seat 😬');
+//   } else {
+//     console.log('You got lucky 😎');
+//   }
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+// console.log(new String('jonas'));
+
+const person = 'iSh';
+const personLower = person.toLowerCase(); //ish
+const validName =
+  personLower[0].toUpperCase() + personLower.slice(1).toLowerCase();
+
+console.log(validName);
+
+const mail = 'hello@email.com';
+const mailSecond = ' Hello@email.com';
+const lowerEmail = mailSecond.toLowerCase().trim(); //
+if (mail === lowerEmail) {
+  console.log('Email is valid');
+} else {
+  console.log('Email is not valid');
+}
+
+const price = '5.640$';
+const rupees = price.replace('$', 'Rs').replace('.', ',');
+console.log(rupees);
+
+const charCheck = price.includes('4');
+console.log(charCheck);
+
+const checkBaggage = function (items) {
+  const notValidItems = items.includes('knife') || items.includes('gun');
+
+  if (notValidItems) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('i am travelling with laptop , charger and knife');
+checkBaggage('i am travelling with chocolate and cloths');
 
 // //-----------------------for of loop-------------------------------------------
+
+let nameOne = 'hello joy';
+nameOne = nameOne.split(' ');
+console.log(nameOne);
+
+let nameTwo = ['hi', 'nagi'];
+nameTwo = nameTwo.join(' ');
+
+console.log(nameTwo);
+
+let array = [1, 2, 3, 4, 5];
+
+// Syntax: array.slice(start, end)
+let newArray = array.slice(1, 3); // From index 1 to index 3 (not including index 3)
+console.log(newArray); // Output: [2, 3]
+console.log(array); // Original array remains unchanged: [1, 2, 3, 4, 5]
+
+let fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
+let citrus = fruits.slice(1, 3); // ["Banana", "Cherry"]
+console.log(citrus); // Output: ["Banana", "Cherry"]
+
+let letters = ['a', 'b', 'c', 'd', 'e'];
+let lastTwo = letters.slice(-2); // ["d", "e"]
+console.log(lastTwo); // Output: ["d", "e"]
+
+let greeting = 'Hello, world!';
+let world = greeting.slice(7, 12);
+console.log(world); // Output: "world"
+
+const creditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+creditCard(61365864);
+console.log(creditCard(61365864)); //*****5864 */
+
+let str = 'Hello, world!';
+
+console.log(str.substring(-5, 5)); // Output: "Hello"
+console.log(str.slice(-5, -1)); // Output: "orld"
+
+// nameTwo = nameTwo.slice(' ');
+
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 // const menu2 = [restaurant.starterMenu, restaurant.mainMenu];
 
