@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script href="./form.js"></script> -->
+    <form id="myForm" >
+            <label for="inptut-value">Value:</label>
+            <input id="inptut-value" type="text" name="inptut-value" ></input>
+            <button type="submit" onclick="data()">Submit</button>
+        </form>
+        <div>
+            <p id="displayArea"></p>
+        </div>
+        <script>
+                function data() {
+                    event.preventDefault();
+
+                const data1 = document.getElementById("inptut-value").value;
+                console.log(data1);
+                if (data1){
+                  document.getElementById("displayArea").textContent=data1;
+                //   document.getElementById("myForm").reset();
+                }else{
+                    alert("Please enter a value.");
+                }
+            }
+        </script>
+
+    <!-- <form id="myForm">
+      <label for="inputValue">Enter Value:</label>
+      <input type="text" id="inputValue" name="inputValue" required />
+      <button type="submit" onclick="displayValue()">Submit</button>
+    </form>
+
+    <div>
+      <h2>Entered Value:</h2>
+      <p id="displayArea"></p>
+    </div>
+
+    <script>
+      function displayValue() {
+        var inputValue = document.getElementById("inputValue").value;
+        console.log(inputValue);
+        if (inputValue) {
+          document.getElementById("displayArea").textContent = inputValue;
+          document.getElementById("myForm").reset();
+        } else {
+          alert("Please enter a value.");
+        }
+      }
+    </script> -->
+  </body>
+</html>
