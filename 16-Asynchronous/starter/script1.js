@@ -23,7 +23,7 @@ const renderCountry = function (data, className = '') {
   </article>
   `;
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
 };
 
 //-------for creating custome error messages for display
@@ -157,21 +157,54 @@ const renderError = function (msg) {
 // };
 // getCountryData('portugal');
 
+//---------using Chaining Promises Getting NeighbourCountry and
+
 
 const getCountryData = country => {
   //country 1
   fetch(`https://countries-api-836d.onrender.com/countries/name/${country}`)
     .then(response => {
-      
+
+      if(!response.ok) {
+        throw new Error(`Country not found: ${response.status}`);
+      }
+
       return response.json();
     })
     .then(data => {
       // console.log(data);
-      return renderCountry(data[0]);
+      renderCountry(data[0]);
+
+
+      const neighbour = data[0].borders[0];
+
+      if (!neighbour) return;
+      //country 2
+      return fetch(
+        `https://countries-api-836d.onrender.com/countries/alpha/${neighbour}`
+      );
     })
-   
+    // using shortcut arrow function with return value
+    .then(response => {
+      
+      if(!response.ok) {
+        throw new Error(`Country not found: ${response.status}`);
+      }
+
+     return response.json();
+
+    })
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      console.log(`${err} `);
+      renderError(`something went wrong ${err.message}. Try Again`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
 btn.addEventListener('click', () => {
   getCountryData('usa');
 });
+
